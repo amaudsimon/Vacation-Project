@@ -206,7 +206,110 @@ public class VacationDetails extends AppCompatActivity {
             }
             return true;
         }
+        if(item.getItemId()== R.id.addexcursions){
+            if (vacationID == -1)
+                Toast.makeText(VacationDetails.this, "Please save vacation before adding excursions", Toast.LENGTH_LONG).show();
 
+            else {
+                Intent intent = new Intent(VacationDetails.this, ExcursionDetails.class);
+                intent.putExtra("vacationID",vacationID);
+                intent.putExtra("startDate", startDate); // Add start date as an extra
+                intent.putExtra("endDate", endDate);
+                startActivity(intent);
+                RecyclerView recyclerView = findViewById(R.id.excursionrecyclerview);
+                final ExcursionAdaptor excursionAdapter = new ExcursionAdaptor(this);
+                recyclerView.setAdapter(excursionAdapter);
+                recyclerView.setLayoutManager(new LinearLayoutManager(this));
+                List<Excursion> filteredExcursions = new ArrayList<>();
+                for (Excursion e : repository.getmAllExcursions()) {
+                    if (e.getVacationID() == vacationID) filteredExcursions.add(e);
+                }
+                excursionAdapter.setExcursions(filteredExcursions);
+                return true;
+            }
+        }
+        if (item.getItemId() == R.id.notifyStart) {
+            String startdateFromScreen = editStartDate.getText().toString();
+            String myFormat = "MM/dd/yyyy";
+            SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.US);
+            Date startDate = null;
+            try {
+                startDate = sdf.parse(startdateFromScreen);
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+
+            if (startDate != null) {
+                Calendar startCalendar = Calendar.getInstance();
+                startCalendar.setTime(startDate);
+
+                // Set the alert for the start date
+                Long trigger = startCalendar.getTimeInMillis();
+                Intent intent = new Intent(VacationDetails.this, MyReceiver.class);
+                intent.putExtra("alert_type", "start"); // Set the alert type as "start"
+                intent.putExtra("vacationStarttitle", editTitle.getText().toString());
+                intent.putExtra("vacationStartcontent", "Vacation starts today");
+                PendingIntent sender = PendingIntent.getBroadcast(VacationDetails.this, ++MainActivity.numAlert, intent, PendingIntent.FLAG_IMMUTABLE);
+                AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+                alarmManager.set(AlarmManager.RTC_WAKEUP, trigger, sender);
+
+                // Add a Toast message to indicate the start alert was set
+                Toast.makeText(this, "Start alert scheduled", Toast.LENGTH_LONG).show();
+            }
+            return true;
+        }
+
+        if (item.getItemId() == R.id.notifyEnd) {
+            String enddateFromScreen = editEndDate.getText().toString();
+            String myFormat = "MM/dd/yyyy";
+            SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.US);
+            Date endDate = null;
+            try {
+                endDate = sdf.parse(enddateFromScreen);
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+
+            if (endDate != null) {
+                Calendar endCalendar = Calendar.getInstance();
+                endCalendar.setTime(endDate);
+
+                // Set the alert for the end date
+                Long trigger = endCalendar.getTimeInMillis();
+                Intent intent = new Intent(VacationDetails.this, MyReceiver.class);
+                intent.putExtra("alert_type", "end"); // Set the alert type as "end"
+                intent.putExtra("vacationEndtitle", editTitle.getText().toString());
+                intent.putExtra("vacationEndcontent", "Vacation ends today");
+                PendingIntent sender = PendingIntent.getBroadcast(VacationDetails.this, ++MainActivity.numAlert, intent, PendingIntent.FLAG_IMMUTABLE);
+                AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+                alarmManager.set(AlarmManager.RTC_WAKEUP, trigger, sender);
+
+                // Add a Toast message to indicate the end alert was set
+                Toast.makeText(this, "End alert scheduled", Toast.LENGTH_LONG).show();
+            }
+            return true;
+        }
+
+
+
+
+
+
+        if (item.getItemId() == R.id.share) {
+            String vacationDetails = "Title: " + editTitle.getText().toString() + "\n" +
+                    "Housing: " + editHousing.getText().toString() + "\n" +
+                    "Start Date: " + editStartDate.getText().toString() + "\n" +
+                    "End Date: " + editEndDate.getText().toString();
+
+            Intent sendIntent = new Intent();
+            sendIntent.setAction(Intent.ACTION_SEND);
+            sendIntent.putExtra(Intent.EXTRA_TEXT, vacationDetails);
+            sendIntent.putExtra(Intent.EXTRA_TITLE, "Vacation Details");
+            sendIntent.setType("text/plain");
+
+            Intent shareIntent = Intent.createChooser(sendIntent, null);
+            startActivity(shareIntent);
+        }
 
         // Date format validation
       /*  SimpleDateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
@@ -232,5 +335,19 @@ public class VacationDetails extends AppCompatActivity {
     }
 
 
+    @Override
+    protected void onResume() {
 
+        super.onResume();
+        RecyclerView recyclerView = findViewById(R.id.excursionrecyclerview);
+        final ExcursionAdaptor excursionAdapter = new ExcursionAdaptor(this);
+        recyclerView.setAdapter(excursionAdapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        List<Excursion> filteredExcursions = new ArrayList<>();
+        for (Excursion e : repository.getmAllExcursions()) {
+            if (e.getVacationID() == vacationID) filteredExcursions.add(e);
+        }
+        excursionAdapter.setExcursions(filteredExcursions);
+
+    }
 }
