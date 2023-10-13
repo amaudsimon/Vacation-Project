@@ -27,7 +27,8 @@ public class MyReceiver extends BroadcastReceiver {
        String VacationStartContent= intent.getStringExtra("vacationStartcontent");
        String VacationEndTitle= intent.getStringExtra("vacationEndtitle");
        String VacationEndContent= intent.getStringExtra("vacationEndcontent");
-
+       String ExcursionStartTitle= intent.getStringExtra("excursionStarttitle");
+       String ExcursionStartContent= intent.getStringExtra("excursionStartcontent");
 
 
 
@@ -42,7 +43,8 @@ public class MyReceiver extends BroadcastReceiver {
         System.out.println(VacationStartContent);
         System.out.println(VacationEndTitle);
         System.out.println(VacationEndContent);
-
+        System.out.println(ExcursionStartTitle);
+        System.out.println(ExcursionStartContent);
 
 
 
@@ -59,7 +61,12 @@ public class MyReceiver extends BroadcastReceiver {
             builder.setContentText(VacationEndContent);
 
         }
+        else if ("excursion".equals(alertType)) {
+            // This is an excursion start date alert
+            builder.setContentTitle(ExcursionStartTitle);
+            builder.setContentText(ExcursionStartContent);
 
+        }
 
         Notification n = builder.build();
 
