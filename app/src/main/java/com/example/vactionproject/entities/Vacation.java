@@ -60,4 +60,8 @@ public class Vacation {
         this.endDate = endDate;
     }
 
+    public String toString() {
+        return "{ID: " + getVacationID() +", Vacation Title: " + getVacationTitle() + ", Location: " + getHousingName() + ", Date: " + getStartDate() + ", End Date: " + getEndDate()+"}";
+    }
+
 }

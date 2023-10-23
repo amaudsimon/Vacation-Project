@@ -17,6 +17,7 @@ import java.util.List;
 
 public class VacationAdaptor extends RecyclerView.Adapter<VacationAdaptor.VacationViewHolder> {
     private List<Vacation> mVacations;
+
     private final Context context;
 
     private final LayoutInflater mInflater;
@@ -79,6 +80,10 @@ public class VacationAdaptor extends RecyclerView.Adapter<VacationAdaptor.Vacati
         mVacations=vacations;
         notifyDataSetChanged();
     }
+    public List<Vacation> getVacations() {
+        return mVacations;
+    }
+
 
 
 }
