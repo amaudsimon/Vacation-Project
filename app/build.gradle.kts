@@ -3,11 +3,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.vactionproject"
+    namespace = "d424.capstone.vactionproject"
     compileSdk = 33
 
     defaultConfig {
-        applicationId = "com.example.vactionproject"
+        applicationId = "d424.capstone.vactionproject"
         minSdk = 26
         targetSdk = 33
         versionCode = 1
