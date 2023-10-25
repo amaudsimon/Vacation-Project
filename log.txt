@@ -1,0 +1,97 @@
+commit 4eff96445cbb0870de82c0f2fe66c4a3299fdbc4
+Author: amaudsimon <asimo29@my.wgu.edu>
+Date:   Mon Oct 23 00:17:41 2023 -0500
+
+    Initial Commit, adding Vacation Project
+
+commit 4350e37e4d359808e1fff66d9de69e6dfbdf3992
+Author: amaudsimon <asimo29@my.wgu.edu>
+Date:   Fri Oct 13 02:40:42 2023 -0500
+
+    APK Release
+
+commit 3f929be67e2bb9c9636fc0168ca23e88c5a6987d
+Author: amaudsimon <asimo29@my.wgu.edu>
+Date:   Fri Oct 13 01:18:07 2023 -0500
+
+    Add to gitlab
+
+commit fa28e5e120e748b1b00b9a17a8478d2892513f7e
+Author: amaudsimon <asimo29@my.wgu.edu>
+Date:   Fri Oct 13 01:17:35 2023 -0500
+
+    5.  Include features that allow the user to do the following for each excursion:
+    
+    a.  Display a detailed view of the excursion, including the title, and date.
+    
+    b.  Enter, edit, and delete excursion information.
+    
+    c.  Include validation that the input dates are formatted correctly.
+    
+    d.  Include an alert that the user can set that will trigger on the excursion date, stating the excursion title.
+    
+    e.  Include validation that the excursion date is during the associated vacation.
+
+commit b04b61e18dae0ae2e1f17e45af5e4de04addb2ba
+Author: amaudsimon <asimo29@my.wgu.edu>
+Date:   Fri Oct 13 01:15:59 2023 -0500
+
+    B4: 4.  Include the following details for each excursion:
+    
+        •   The excursion title (e.g., Snorkeling, Hiking, Bus Tour, Cooking Lesson)
+    
+        •   The excursion date
+
+commit 25d73d652c411233ce3d9a2852581c854ba4a9b3
+Author: amaudsimon <asimo29@my.wgu.edu>
+Date:   Fri Oct 13 01:15:08 2023 -0500
+
+    B3: 3.  Include features that allow the user to do the following for each vacation:
+    
+        a.  Display a detailed view of the vacation, including all vacation details. This view can also be used to add and update the vacation information.
+    
+        b.  Enter, edit, and delete vacation information.
+    
+        c.  Include validation that the input dates are formatted correctly.
+    
+        d.  Include validation that the vacation end date is after the start date.
+    
+        e.  Include an alert that the user can set which will trigger on the start and end date, displaying the vacation title and whether it is starting or ending.
+    
+        f.  Include sharing features so the user can share all the vacation details via a sharing feature (either e-mail, clipboard or SMS) that automatically populates with the vacation details.
+    
+        g.  Display a list of excursions associated with each vacation.
+    
+        h.  Add, update, and delete as many excursions as needed.
+
+commit bdfd7dccd928946c1c9734d2bf9674dfef307cbd
+Author: amaudsimon <asimo29@my.wgu.edu>
+Date:   Fri Oct 13 01:11:37 2023 -0500
+
+    B2: 2.  Include the following details for each vacation:
+    
+        •   title (e.g., Bermuda Trip, Spring Break, London Trip)
+    
+        •   hotel or other place where you will be staying
+    
+        •   start date
+    
+        •   end date
+
+commit f3c5179b1fa574339e2c631e746f6e98bc22b3a2
+Author: amaudsimon <asimo29@my.wgu.edu>
+Date:   Fri Oct 13 01:10:46 2023 -0500
+
+    Vacation Entities is for C
+
+commit 140b2900d5996269990a7cb26773aa85175abd1c
+Author: amaudsimon <asimo29@my.wgu.edu>
+Date:   Fri Oct 13 01:03:53 2023 -0500
+
+    B1: B.  Create an Android mobile application, compatible with Android 8.0 and higher. The application must use the Room Framework as an abstraction layer over the local SQLite database to save the data. The application must include the following functional requirements:
+    
+        1.  Create a user option to enter, update and delete vacations.
+    
+        a.  Allow the user to add as many vacations as desired.
+    
+        b.  Implement validation so that a vacation cannot be deleted if excursions are associated with it.
