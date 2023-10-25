@@ -20,7 +20,7 @@ import android.widget.Toast;
 import d424.capstone.vactionproject.entities.Excursion;
 import d424.capstone.vactionproject.entities.Vacation;
 
-import com.example.vactionproject.R;
+import d424.capstone.vactionproject.R;
 import d424.capstone.vactionproject.database.Repository;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 

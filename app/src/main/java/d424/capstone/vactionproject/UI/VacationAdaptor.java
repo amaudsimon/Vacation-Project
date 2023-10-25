@@ -10,7 +10,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.vactionproject.R;
+import d424.capstone.vactionproject.R;
 import d424.capstone.vactionproject.entities.Vacation;
 
 import java.util.List;

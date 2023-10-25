@@ -12,7 +12,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
-import com.example.vactionproject.R;
+import d424.capstone.vactionproject.R;
 import d424.capstone.vactionproject.database.Repository;
 import d424.capstone.vactionproject.entities.Vacation;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
