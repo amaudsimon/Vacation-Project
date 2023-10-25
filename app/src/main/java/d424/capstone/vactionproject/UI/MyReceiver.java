@@ -10,8 +10,7 @@ import android.content.Intent;
 
 import androidx.core.app.NotificationCompat;
 
-import com.example.vactionproject.R;
-
+import d424.capstone.vactionproject.R;
 
 public class MyReceiver extends BroadcastReceiver {
     String channel_id = "test";

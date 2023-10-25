@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import com.example.vactionproject.R;
+import d424.capstone.vactionproject.R;
 
 public class MainActivity extends AppCompatActivity {
     public static int numAlert;
